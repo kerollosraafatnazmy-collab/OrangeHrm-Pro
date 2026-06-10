@@ -24,7 +24,6 @@ public class BaseTest {
 
         System.out.println("✅ Base Setup Done!");
     }
-
     protected RequestSpecification getAuthSpec() {
         return new RequestSpecBuilder()
                 .addRequestSpecification(requestSpec)
