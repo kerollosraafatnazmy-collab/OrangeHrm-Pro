@@ -1,5 +1,4 @@
 package com.orangehrm.base;
-
 import com.orangehrm.config.ConfigManager;
 import com.orangehrm.utils.TokenManager;
 import io.restassured.RestAssured;
