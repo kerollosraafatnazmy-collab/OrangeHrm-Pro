@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 
 public class AuthTest extends BaseTest {
 
-    private static final String authCode = "def50200589a32bbb6d0a79417bcc46de13cd0156367de87715619e09a65d3e7d86f6c10ac6f029b09d10e4ac7d8f97acab00b5598b466cecfe32d93898a0663baf06b4d4c757b3a3501099e819cb1162c355c68f8d1362132cf8f758a48dd9e40d3f1a095acb439dc5d3d85b97311d66ff20d2171281d8ecd49ebd0b1b14979d2a109735194440d044ccae55924fec63c704c7ad0b9c425ba54503c39a1b30ad6c1fa33b1e6bfb9e0af3ca455963800f9774e53bd57cda7ed7062fc279043ee6e74e1054a55a7110658fe8ff9580de086807148cceaeb1aa9803c84fa5a3e46e032ef06f154aca5dfb4fd024b9c7adbc8c7c70ec51730e89f1a575d4eedc8220a366876cc42ccc56e5a11e7a7b966d67321667625cfac280ad7bdffe5afb0dbb5ffccca36df1ae4735c67bd556de3550f5cf80ed52b75b335665890422a5137c31af7a549f2d49e5f72bab8816891a83f06ee1fb6db90cf3f0683d1a885b5c8dcf8efe68265b18510c3f35d11035e531bff6147279eab9a9867e51f8b620343df32a5c93fb0fad6149c5eeae04f2dcd71a845b1c507";
-    private static String codeVerifier = "f439add3474beb0c415d19e7ba2ef4f1f5ca127b7bbad771799c5e1c";
+    private static final String authCode = "def50200ab5dcb49717c8e94dfeb3072cbebfed17a77d30abcbe9aa0ef549dc4c02aacdbef6f2bf0ba29886cf18b5db5ece5e08bb3d529cd2b31059aa4088014100430067e9bd32ace76d47086cb3376008fd103638f610898bb323a9ddc05267f8c10959269f610b7f377876a492092bc18db29b4860eadd27dd1c4f68d2318f68fbb97c776feb27c66daadcf293ef49822e3cc73c3b6b1a2266306f78be8b713406fb29a79a1ef1e850de7b7f3c4f4da2b4badfde14b25e50a285a8f3e986966bf04b024eb04a030d988bb3c0d051ef8ae3178dadb05ccc3f928200e2e1e570edefa99295a8ef00f7acd5a8ff11cf0356a8cc2b0e5614da1a39e20cb5206d0d0f6d4ff64525fada2830a9da904c63674e5f00267ead32390e5561b021e7a15f37fdae137b45f0fc0da9dcbc176b0375ef6b035178d2218ce98d60c63bf6e72a8bf0bbe35748b52b4d93c8454462c815cf70d56aae0d59116e48b3d0ea592cc20fb08051ede4cfefddd90cf11d78396745783e91be4b3216bcdb06b07cb57fdf483a684aa856455b2e1ec9a3e467a522dadfa5cdbec";
+    private static final String codeVerifier = "f439add3474beb0c415d19e7ba2ef4f1f5ca127b7bbad771799c5e1c";
 
     @Test(priority = 1, description = "Obtain Access Token via PKCE")
     public void testObtainAccessToken() {
@@ -34,6 +34,7 @@ public class AuthTest extends BaseTest {
 
         TokenManager.setTokensFromResponse(response);
         System.out.println("✅ Access Token: " + response.jsonPath().getString("access_token"));
+        System.out.println("📋 REFRESH TOKEN: " + response.jsonPath().getString("refresh_token"));
 
         Assert.assertNotNull(response.jsonPath().getString("access_token"));
         Assert.assertNotNull(response.jsonPath().getString("refresh_token"));
@@ -42,7 +43,6 @@ public class AuthTest extends BaseTest {
     @Test(priority = 2, description = "Refresh Access Token",
             dependsOnMethods = "testObtainAccessToken")
     public void testRefreshToken() {
-
         TokenManager.refreshAccessToken();
         Assert.assertNotNull(TokenManager.getAccessToken());
         System.out.println("✅ Token Refreshed!");

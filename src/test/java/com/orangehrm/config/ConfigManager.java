@@ -34,4 +34,7 @@ public class ConfigManager {
     public static String getRedirectUri() {
         return get("redirect.uri");
     }
+    public static String getRefreshToken() {
+        return get("refresh.token");
+    }
 }
