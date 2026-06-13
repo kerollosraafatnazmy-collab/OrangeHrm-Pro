@@ -8,4 +8,10 @@
         </classes>
     </test>
 
+    <test name="Education Tests">
+        <classes>
+            <class name="com.orangehrm.tests.EducationTest"/>
+        </classes>
+    </test>
+
 </suite>
