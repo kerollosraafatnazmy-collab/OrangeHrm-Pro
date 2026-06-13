@@ -8,6 +8,7 @@
             <class name="com.orangehrm.tests.EducationTest"/>
             <class name="com.orangehrm.tests.EmployeeTest"/>
             <class name="com.orangehrm.tests.LeaveTest"/>
+            <class name="com.orangehrm.tests.CleanUpTest"/>
         </classes>
     </test>
 

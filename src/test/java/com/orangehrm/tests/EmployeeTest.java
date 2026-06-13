@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class EmployeeTest extends BaseTest {
 
-    private static int empNumber;
+    public static int empNumber;
 
     // ==================== POSITIVE TESTS ====================
 

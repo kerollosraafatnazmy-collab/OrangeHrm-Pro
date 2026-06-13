@@ -8,8 +8,7 @@ import org.testng.annotations.Test;
 
 public class EducationTest extends BaseTest {
 
-    private static int educationId;
-
+    public static int educationId;
     // ==================== POSITIVE TESTS ====================
 
     @Test(priority = 1, description = "TC-EDU-001: Create Education Record")

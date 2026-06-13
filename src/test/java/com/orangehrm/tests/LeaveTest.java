@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class LeaveTest extends BaseTest {
 
     private static int leaveTypeId;
-    private static int leaveRequestId;
+    public static int leaveRequestId;
     private static int entitlementId;
 
     // ==================== POSITIVE TESTS ====================
