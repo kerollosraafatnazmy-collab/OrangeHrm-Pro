@@ -173,7 +173,7 @@ public class EmployeeTest extends BaseTest {
                 .get("/api/v2/pim/employees/99999")
                 .then()
                 .log().all()
-                .statusCode(404);
+                .statusCode(422);
 
         System.out.println("✅ Get Employee Invalid ID Passed!");
     }

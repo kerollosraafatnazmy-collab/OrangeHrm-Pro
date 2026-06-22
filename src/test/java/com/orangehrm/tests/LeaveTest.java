@@ -20,7 +20,8 @@ public class LeaveTest extends BaseTest {
         Response response = RestAssured
                 .given()
                 .spec(getAuthSpec())
-                .body("{\"name\":\"Annual Leave\",\"entitlementType\":1,\"situational\":false}")
+
+                .body("{\"name\":\"Annual Leave\",\"situational\":false}")
                 .when()
                 .post("/api/v2/leave/leave-types")
                 .then()
