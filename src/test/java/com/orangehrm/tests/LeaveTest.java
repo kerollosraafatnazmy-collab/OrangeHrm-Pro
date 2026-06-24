@@ -21,7 +21,7 @@ public class LeaveTest extends BaseTest {
                 .given()
                 .spec(getAuthSpec())
 
-                .body("{\"name\":\"Annual Leave\",\"situational\":false}")
+                .body("{\"name\":\"Annual Leave " + System.currentTimeMillis() + "\",\"situational\":false}")
                 .when()
                 .post("/api/v2/leave/leave-types")
                 .then()
@@ -57,7 +57,9 @@ public class LeaveTest extends BaseTest {
         RestAssured
                 .given()
                 .spec(getAuthSpec())
-                .body("{\"name\":\"Annual Leave Updated\",\"entitlementType\":1,\"situational\":false}")
+
+
+                .body("{\"name\":\"Leave Updated " + System.currentTimeMillis() + "\",\"situational\":false}")
                 .when()
                 .put("/api/v2/leave/leave-types/" + leaveTypeId)
                 .then()
@@ -86,23 +88,38 @@ public class LeaveTest extends BaseTest {
         System.out.println("✅ Leave Entitlement Assigned! ID: " + entitlementId);
     }
 
-    @Test(priority = 5, description = "TC-LVR-001: Create Leave Request",
+    @Test(priority = 4, description = "Configure Work Week",
             dependsOnMethods = "testAssignLeaveEntitlement")
-    public void testCreateLeaveRequest() {
+    public void testConfigureWorkWeek() {
 
-        Response response = RestAssured
+        RestAssured
                 .given()
                 .spec(getAuthSpec())
-                .body("{\"empNumber\":1,\"leaveTypeId\":" + leaveTypeId + ",\"fromDate\":\"2026-07-01\",\"toDate\":\"2026-07-01\",\"fromDateLeaveHours\":\"0\",\"toDateLeaveHours\":\"0\",\"comment\":\"Test Leave\"}")
+                .body("{\"monday\":0,\"tuesday\":0,\"wednesday\":0,\"thursday\":0,\"friday\":0,\"saturday\":8,\"sunday\":8}")
+                .when()
+                .put("/api/v2/leave/workweek")
+                .then()
+                .log().all()
+                .statusCode(200);
+
+        System.out.println("✅ Work Week Configured!");
+    }
+
+    @Test(priority = 5, description = "TC-LVR-001: Create Leave Request",
+            dependsOnMethods = "testConfigureWorkWeek")
+    public void testCreateLeaveRequest() {
+
+        RestAssured
+                .given()
+                .spec(getAuthSpec())
+                .body("{\"empNumber\":1,\"leaveTypeId\":" + leaveTypeId + ",\"fromDate\":\"2026-08-03\",\"toDate\":\"2026-08-03\",\"comment\":\"Test Leave\"}")
                 .when()
                 .post("/api/v2/leave/employees/leave-requests")
                 .then()
                 .log().all()
-                .statusCode(200)
-                .extract().response();
+                .statusCode(200);
 
-        leaveRequestId = response.jsonPath().getInt("data.id");
-        System.out.println("✅ Leave Request Created! ID: " + leaveRequestId);
+        System.out.println("✅ Leave Request Created!");
     }
 
     @Test(priority = 6, description = "TC-LVB-001: Get Leave Balance",
@@ -115,8 +132,8 @@ public class LeaveTest extends BaseTest {
                 .when()
                 .get("/api/v2/leave/leave-balance/leave-type/" + leaveTypeId + "?empNumber=1")
                 .then()
-                .log().all()
-                .statusCode(200);
+                .statusCode(200)
+                .extract().response();
 
         System.out.println("✅ Get Leave Balance Passed!");
     }

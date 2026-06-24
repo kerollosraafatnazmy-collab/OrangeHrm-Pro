@@ -78,22 +78,22 @@ public class EducationTest extends BaseTest {
         System.out.println("✅ List Educations Passed!");
     }
 
-    @Test(priority = 5, description = "TC-EDU-005: Delete Education Record",
-            dependsOnMethods = "testCreateEducation")
-    public void testDeleteEducation() {
-
-        RestAssured
-                .given()
-                .spec(getAuthSpec())
-                .body("{\"ids\":[" + educationId + "]}")
-                .when()
-                .delete("/api/v2/admin/educations")
-                .then()
-                .log().all()
-                .statusCode(200);
-
-        System.out.println("✅ Delete Education Passed!");
-    }
+//    @Test(priority = 5, description = "TC-EDU-005: Delete Education Record",
+//            dependsOnMethods = "testCreateEducation")
+//    public void testDeleteEducation() {
+//
+//        RestAssured
+//                .given()
+//                .spec(getAuthSpec())
+//                .body("{\"ids\":[" + educationId + "]}")
+//                .when()
+//                .delete("/api/v2/admin/educations")
+//                .then()
+//                .log().all()
+//                .statusCode(200);
+//
+//        System.out.println("✅ Delete Education Passed!");
+//    }
 
     // ==================== NEGATIVE TESTS ====================
 

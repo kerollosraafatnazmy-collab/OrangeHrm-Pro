@@ -84,7 +84,6 @@ public class CleanUpTest extends BaseTest {
 
         System.out.println("✅ Delete Education Passed!");
     }
-
     @Test(priority = 5, description = "TC-DEL-005: Revoke Token")
     public void testRevokeToken() {
 
