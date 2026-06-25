@@ -301,18 +301,13 @@ Software Testing Engineer
 ## 📸 Allure Report Screenshots
 
 ### Dashboard
-
-![Allure Dashboard](screenshots/dashboard.png)
-
-### Test Suites
-
-![Allure Suites](screenshots/suites.png)
+![Dashboard](screenshots/dashboard.png)
 
 ### Overview
+![Overview](screenshots/overview.png)
 
-![Allure Overview](screenshots/overview.png)
+### Suites
+![Suites](screenshots/suites.png)
 
 ### Graph
-
-![Allure Overview](screenshots/Graph.png)
-
+![Graph](screenshots/Graph.png)
