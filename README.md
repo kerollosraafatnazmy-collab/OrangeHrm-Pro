@@ -296,18 +296,18 @@ Software Testing Engineer
 * Git & GitHub
 * Allure Report
 
-```
-```
+---
+
 ## 📸 Allure Report Screenshots
 
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dashboard.png.png)
 
 ### Overview
-![Overview](screenshots/overview.png)
+![Overview](screenshots/overview.png.png)
 
 ### Suites
-![Suites](screenshots/suites.png)
+![Suites](screenshots/suites.png.png)
 
 ### Graph
-![Graph](screenshots/Graph.png)
+![Graph](screenshots/Graph.png.png)ph](screenshots/Graph.png)
