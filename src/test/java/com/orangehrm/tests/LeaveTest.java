@@ -105,22 +105,7 @@ public class LeaveTest extends BaseTest {
         System.out.println("✅ Work Week Configured!");
     }
 
-//    @Test(priority = 5, description = "TC-LVR-001: Create Leave Request",
-//            dependsOnMethods = "testConfigureWorkWeek")
-//    public void testCreateLeaveRequest() {
-//
-//        RestAssured
-//                .given()
-//                .spec(getAuthSpec())
-//                .body("{\"empNumber\":1,\"leaveTypeId\":" + leaveTypeId + ",\"fromDate\":\"2026-08-03\",\"toDate\":\"2026-08-03\",\"comment\":\"Test Leave\"}")
-//                .when()
-//                .post("/api/v2/leave/employees/leave-requests")
-//                .then()
-//                .log().all()
-//                .statusCode(200);
-//
-//        System.out.println("✅ Leave Request Created!");
-//    }
+
 
     @Test(priority = 6, description = "TC-LVB-001: Get Leave Balance",
             dependsOnMethods = "testCreateLeaveType")
@@ -135,7 +120,7 @@ public class LeaveTest extends BaseTest {
                 .statusCode(200)
                 .extract().response();
 
-        System.out.println("✅ Get Leave Balance Passed!");
+        System.out.println("Get Leave Balance Passed!");
     }
 
     // ==================== NEGATIVE TESTS ====================

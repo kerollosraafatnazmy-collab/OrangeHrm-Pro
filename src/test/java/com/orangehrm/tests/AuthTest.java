@@ -28,10 +28,11 @@ public class AuthTest extends BaseTest {
                 .formParam("redirect_uri", ConfigManager.getRedirectUri())
                 .formParam("code_verifier", codeVerifier)
                 .when()
-                .post("/oauth2/token")
-                .then()
-                .log().all()
-                .extract().response();
+                .post("/oauth2/token");
+
+        response.then()
+                .statusCode(200)
+                .log().all();
 
         TokenManager.setTokensFromResponse(response);
         System.out.println("✅ Access Token: " + response.jsonPath().getString("access_token"));
