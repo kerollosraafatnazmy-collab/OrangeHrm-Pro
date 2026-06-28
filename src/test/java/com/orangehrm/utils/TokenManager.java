@@ -41,7 +41,7 @@ public class TokenManager {
 
         accessToken = response.jsonPath().getString("access_token");
         refreshToken = response.jsonPath().getString("refresh_token");
-        System.out.println("✅ Token Refreshed Successfully!");
+        System.out.println("git Token Refreshed Successfully!");
     }
 
     public static void setAccessToken(String token) {

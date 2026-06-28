@@ -35,8 +35,8 @@ public class AuthTest extends BaseTest {
                 .log().all();
 
         TokenManager.setTokensFromResponse(response);
-        System.out.println("✅ Access Token: " + response.jsonPath().getString("access_token"));
-        System.out.println("📋 REFRESH TOKEN: " + response.jsonPath().getString("refresh_token"));
+        System.out.println(" Access Token: " + response.jsonPath().getString("access_token"));
+        System.out.println(" REFRESH TOKEN: " + response.jsonPath().getString("refresh_token"));
 
         Assert.assertNotNull(response.jsonPath().getString("access_token"));
         Assert.assertNotNull(response.jsonPath().getString("refresh_token"));
@@ -47,6 +47,6 @@ public class AuthTest extends BaseTest {
     public void testRefreshToken() {
         TokenManager.refreshAccessToken();
         Assert.assertNotNull(TokenManager.getAccessToken());
-        System.out.println("✅ Token Refreshed!");
+        System.out.println(" Token Refreshed!");
     }
 }

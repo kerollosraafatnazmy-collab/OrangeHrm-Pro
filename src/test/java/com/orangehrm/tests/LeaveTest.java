@@ -30,7 +30,7 @@ public class LeaveTest extends BaseTest {
                 .extract().response();
 
         leaveTypeId = response.jsonPath().getInt("data.id");
-        System.out.println("✅ Leave Type Created! ID: " + leaveTypeId);
+        System.out.println(" Leave Type Created! ID: " + leaveTypeId);
         Assert.assertTrue(leaveTypeId > 0);
     }
 
@@ -47,7 +47,7 @@ public class LeaveTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Get Leave Type by ID Passed!");
+        System.out.println(" Get Leave Type by ID Passed!");
     }
 
     @Test(priority = 3, description = "TC-LVT-003: Update Leave Type",
@@ -66,7 +66,7 @@ public class LeaveTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Update Leave Type Passed!");
+        System.out.println("Update Leave Type Passed!");
     }
 
     @Test(priority = 4, description = "TC-LVE-001: Assign Leave Entitlement",
@@ -85,7 +85,7 @@ public class LeaveTest extends BaseTest {
                 .extract().response();
 
         entitlementId = response.jsonPath().getInt("data.id");
-        System.out.println("✅ Leave Entitlement Assigned! ID: " + entitlementId);
+        System.out.println(" Leave Entitlement Assigned! ID: " + entitlementId);
     }
 
     @Test(priority = 4, description = "Configure Work Week",
@@ -102,7 +102,7 @@ public class LeaveTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Work Week Configured!");
+        System.out.println(" Work Week Configured!");
     }
 
 
@@ -138,7 +138,7 @@ public class LeaveTest extends BaseTest {
                 .log().all()
                 .statusCode(422);
 
-        System.out.println("✅ Create Leave Type Missing Name Passed!");
+        System.out.println(" Create Leave Type Missing Name Passed!");
     }
 
     @Test(priority = 8, description = "TC-LVT-001-N2: Create Leave Type - No Token")
@@ -154,7 +154,7 @@ public class LeaveTest extends BaseTest {
                 .log().all()
                 .statusCode(401);
 
-        System.out.println("✅ Create Leave Type No Token Passed!");
+        System.out.println(" Create Leave Type No Token Passed!");
     }
 
     @Test(priority = 9, description = "TC-LVT-002-N1: Get Leave Type - Invalid ID")
@@ -169,7 +169,7 @@ public class LeaveTest extends BaseTest {
                 .log().all()
                 .statusCode(404);
 
-        System.out.println("✅ Get Leave Type Invalid ID Passed!");
+        System.out.println("Get Leave Type Invalid ID Passed!");
     }
 
     @Test(priority = 10, description = "TC-LVE-001-N1: Assign Entitlement - Invalid empNumber")
@@ -185,7 +185,7 @@ public class LeaveTest extends BaseTest {
                 .log().all()
                 .statusCode(422);
 
-        System.out.println("✅ Assign Entitlement Invalid Emp Passed!");
+        System.out.println(" Assign Entitlement Invalid Emp Passed!");
     }
 
     @Test(priority = 11, description = "TC-LVR-002-N1: Approve Leave - Invalid ID")
@@ -201,6 +201,6 @@ public class LeaveTest extends BaseTest {
                 .log().all()
                 .statusCode(404);
 
-        System.out.println("✅ Approve Leave Invalid ID Passed!");
+        System.out.println(" Approve Leave Invalid ID Passed!");
     }
 }

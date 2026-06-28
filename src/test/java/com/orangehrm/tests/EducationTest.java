@@ -26,7 +26,7 @@ public class EducationTest extends BaseTest {
                 .extract().response();
 
         educationId = response.jsonPath().getInt("data.id");
-        System.out.println("✅ Education Created! ID: " + educationId);
+        System.out.println(" Education Created! ID: " + educationId);
         Assert.assertTrue(educationId > 0);
     }
 
@@ -43,7 +43,7 @@ public class EducationTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Get Education by ID Passed!");
+        System.out.println(" Get Education by ID Passed!");
     }
 
     @Test(priority = 3, description = "TC-EDU-003: Update Education Record",
@@ -60,7 +60,7 @@ public class EducationTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Update Education Passed!");
+        System.out.println(" Update Education Passed!");
     }
 
     @Test(priority = 4, description = "TC-EDU-004: List All Education Records")
@@ -75,25 +75,10 @@ public class EducationTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ List Educations Passed!");
+        System.out.println("List Educations Passed!");
     }
 
-//    @Test(priority = 5, description = "TC-EDU-005: Delete Education Record",
-//            dependsOnMethods = "testCreateEducation")
-//    public void testDeleteEducation() {
-//
-//        RestAssured
-//                .given()
-//                .spec(getAuthSpec())
-//                .body("{\"ids\":[" + educationId + "]}")
-//                .when()
-//                .delete("/api/v2/admin/educations")
-//                .then()
-//                .log().all()
-//                .statusCode(200);
-//
-//        System.out.println("✅ Delete Education Passed!");
-//    }
+
 
     // ==================== NEGATIVE TESTS ====================
 
@@ -110,7 +95,7 @@ public class EducationTest extends BaseTest {
                 .log().all()
                 .statusCode(422);
 
-        System.out.println("✅ Create Education Missing Name Passed!");
+        System.out.println(" Create Education Missing Name Passed!");
     }
 
     @Test(priority = 7, description = "TC-EDU-001-N2: Create Education - No Token")
@@ -126,7 +111,7 @@ public class EducationTest extends BaseTest {
                 .log().all()
                 .statusCode(401);
 
-        System.out.println("✅ Create Education No Token Passed!");
+        System.out.println(" Create Education No Token Passed!");
     }
 
     @Test(priority = 8, description = "TC-EDU-002-N1: Get Education - Invalid ID")
@@ -141,7 +126,7 @@ public class EducationTest extends BaseTest {
                 .log().all()
                 .statusCode(404);
 
-        System.out.println("✅ Get Education Invalid ID Passed!");
+        System.out.println(" Get Education Invalid ID Passed!");
     }
 
     @Test(priority = 9, description = "TC-EDU-003-N1: Update Education - Invalid ID")
@@ -157,7 +142,7 @@ public class EducationTest extends BaseTest {
                 .log().all()
                 .statusCode(404);
 
-        System.out.println("✅ Update Education Invalid ID Passed!");
+        System.out.println(" Update Education Invalid ID Passed!");
     }
 
     @Test(priority = 10, description = "TC-EDU-003-N2: Update Education - Missing name")
@@ -173,6 +158,6 @@ public class EducationTest extends BaseTest {
                 .log().all()
                 .statusCode(422);
 
-        System.out.println("✅ Update Education Missing Name Passed!");
+        System.out.println("Update Education Missing Name Passed!");
     }
 }

@@ -27,7 +27,7 @@ public class EmployeeTest extends BaseTest {
                 .extract().response();
 
         empNumber = response.jsonPath().getInt("data.empNumber");
-        System.out.println("✅ Employee Created! empNumber: " + empNumber);
+        System.out.println(" Employee Created! empNumber: " + empNumber);
         Assert.assertTrue(empNumber > 0);
     }
 
@@ -44,7 +44,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Get Employee by ID Passed!");
+        System.out.println(" Get Employee by ID Passed!");
     }
 
     @Test(priority = 3, description = "TC-PIM-003: Get Personal Details",
@@ -60,7 +60,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Get Personal Details Passed!");
+        System.out.println("Get Personal Details Passed!");
     }
 
     @Test(priority = 4, description = "TC-PIM-004: Update Personal Details",
@@ -77,7 +77,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Update Personal Details Passed!");
+        System.out.println(" Update Personal Details Passed!");
     }
 
     @Test(priority = 5, description = "TC-PIM-005: Get Job Details",
@@ -93,7 +93,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Get Job Details Passed!");
+        System.out.println(" Get Job Details Passed!");
     }
 
     @Test(priority = 6, description = "TC-PIM-009: Add Salary Component",
@@ -110,7 +110,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Add Salary Component Passed!");
+        System.out.println(" Add Salary Component Passed!");
     }
 
     @Test(priority = 7, description = "TC-PIM-010: Get Employee Salary",
@@ -126,7 +126,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(200);
 
-        System.out.println("✅ Get Employee Salary Passed!");
+        System.out.println(" Get Employee Salary Passed!");
     }
 
     // ==================== NEGATIVE TESTS ====================
@@ -144,7 +144,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(422);
 
-        System.out.println("✅ Create Employee Missing FirstName Passed!");
+        System.out.println(" Create Employee Missing FirstName Passed!");
     }
 
     @Test(priority = 9, description = "TC-PIM-001-N2: Create Employee - No Token")
@@ -160,7 +160,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(401);
 
-        System.out.println("✅ Create Employee No Token Passed!");
+        System.out.println(" Create Employee No Token Passed!");
     }
 
     @Test(priority = 10, description = "TC-PIM-002-N1: Get Employee - Invalid empNumber")
@@ -175,7 +175,7 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(422);
 
-        System.out.println("✅ Get Employee Invalid ID Passed!");
+        System.out.println(" Get Employee Invalid ID Passed!");
     }
 
     @Test(priority = 11, description = "TC-PIM-004-N1: Update Personal Details - Invalid Date")
@@ -191,6 +191,6 @@ public class EmployeeTest extends BaseTest {
                 .log().all()
                 .statusCode(422);
 
-        System.out.println("✅ Update Personal Details Invalid Date Passed!");
+        System.out.println(" Update Personal Details Invalid Date Passed!");
     }
 }
